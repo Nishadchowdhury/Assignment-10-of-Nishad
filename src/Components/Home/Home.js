@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import banner from '../../images/home/homepage.svg'
 import Services from '../Services/Services';
 import Footer from '../Shared/Footer';
 
 const Home = () => {
+
+    const [user] = useAuthState(auth);
+    
+    useEffect( ()=>{
+        console.log(user);
+    } ,[user])
+
     return (
         <>
 

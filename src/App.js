@@ -6,7 +6,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Login from './Components/Authentication/Login';
 import SignUp from './Components/Authentication/SignUp';
 import RequireAuth from './Components/Authentication/RequireAuth';
-import LoadingSpinner from './Components/Shared/LoadingSpinner/LoadingSpinner';
+import  NotFound  from '../src/Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -18,7 +18,6 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/signupo' element={<LoadingSpinner />} />
 
 
         <Route path='/checkout' element={
@@ -29,6 +28,7 @@ function App() {
 
 
 
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
     </div>
