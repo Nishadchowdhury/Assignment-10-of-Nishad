@@ -4,18 +4,30 @@ import Header from './Components/Shared/Header/Header';
 import { Route, Routes } from 'react-router';
 import Home from './Components/Home/Home';
 import Checkout from './Components/Checkout/Checkout';
+import Login from './Components/Authentication/Login';
+import SignUp from './Components/Authentication/SignUp';
+import RequireAuth from './Components/Authentication/RequireAuth';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
+    <div className="">
 
-     <Routes>
-       <Route path='/' element={<Home/>} />
+      <Header />
 
-       <Route path='/checkout' element={<Checkout/>} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/signin' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
 
-     </Routes>
+
+
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <Checkout />
+          </RequireAuth>
+        } />
+
+      </Routes>
 
     </div>
   );

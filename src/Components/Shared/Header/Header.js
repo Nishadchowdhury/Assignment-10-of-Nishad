@@ -1,12 +1,20 @@
+import { signOut } from '@firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, NavLink } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import logo from '../../../images/home/logo.png';
 
 
 
 const Header = () => {
 
+  const [user] = useAuthState(auth);
+
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+
+  const active = 'p-2  border-y-2 border-red-500 m-4 text-red-500 rounded-lg bg-red-50 ';
+  const notActive = 'p-2 border-b-2 m-4 ';
 
   return (
 
@@ -41,9 +49,17 @@ const Header = () => {
           id="example-navbar-danger"
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto gap-7 ">
-            <Link to='/about' > About </Link>
-            <Link to='/blogs' > Blogs </Link>
-            <Link to='/login' > Log in </Link> 
+            <NavLink to='/' className={({ isActive }) => isActive ? active : notActive} > Home </NavLink>
+            <NavLink to='/about' className={({ isActive }) => isActive ? active : notActive} > About </NavLink>
+            <NavLink to='/blogs' className={({ isActive }) => isActive ? active : notActive} > Blogs </NavLink>
+          
+            {/* {user ? <button className={notActive} onClick={()=> signOut(auth)} > Sing Out </button> : */}
+            {user ? <NavLink to='/signin' onClick={()=> signOut(auth)} className={({ isActive }) => isActive ? active : notActive} > Sing Out </NavLink> :
+
+              <NavLink to='/signin' className={({ isActive }) => isActive ? active : notActive} > Sign in </NavLink>
+
+            }
+
           </ul>
         </div>
       </div>
