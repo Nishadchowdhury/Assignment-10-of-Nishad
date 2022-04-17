@@ -3,6 +3,7 @@ import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hook
 import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router';
 import auth from '../../firebase.init';
+import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 
 const Login = () => {
 
@@ -52,6 +53,10 @@ const Login = () => {
         setError('');
         signInWithEmailAndPassword(email, password);
 
+    }
+
+    if(loading){
+        return <LoadingSpinner/>
     }
 
 

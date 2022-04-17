@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 import auth from '../../firebase.init'
+import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 
 const SignUp = () => {
 
@@ -65,6 +66,11 @@ const SignUp = () => {
         setError('');
 
     }
+
+    if(loading){
+        return <LoadingSpinner/>
+    }
+
 
     return (
 

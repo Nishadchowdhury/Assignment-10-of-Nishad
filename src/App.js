@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Shared/Header/Header';
 import { Route, Routes } from 'react-router';
@@ -7,6 +6,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Login from './Components/Authentication/Login';
 import SignUp from './Components/Authentication/SignUp';
 import RequireAuth from './Components/Authentication/RequireAuth';
+import LoadingSpinner from './Components/Shared/LoadingSpinner/LoadingSpinner';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-
+        <Route path='/signupo' element={<LoadingSpinner />} />
 
 
         <Route path='/checkout' element={
@@ -26,6 +26,8 @@ function App() {
             <Checkout />
           </RequireAuth>
         } />
+
+
 
       </Routes>
 
