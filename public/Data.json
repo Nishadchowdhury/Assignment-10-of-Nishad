@@ -1,50 +1,44 @@
 [
     {
       "id": "625bc964239e5fa33544521d",
-      "Type": "625bc96409020b1fd8ff2d76",
-      "name": "Jackie Lane",
-      "about": "Clark Peters",
-      "price": 823,
-      "picture": "http://placehold.it/32x32"
+      "Type": "Single Student",
+      "about": "I teach English, Math & History",
+      "price": 1000,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     },
     {
       "id": "625bc9647c7d5c149e01da97",
-      "Type": "625bc964107e34c68ddc82af",
-      "name": "Brock Gill",
-      "about": "Bessie Turner",
-      "price": 1172,
-      "picture": "http://placehold.it/32x32"
+      "Type": "Single Student (Night)",
+      "about": "I teach English, Math & History",
+      "price": 1200,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     },
     {
       "id": "625bc964d1d1abd64ac93528",
-      "Type": "625bc964d55c6d3da15cd4d9",
-      "name": "Chris Fulton",
-      "about": "Lola Stokes",
-      "price": 540,
-      "picture": "http://placehold.it/32x32"
+      "Type": "Tow Students (In One place)",
+      "about": "I teach English, Math & History",
+      "price": 1500,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     },
     {
       "id": "625bc96468190981583ba82e",
-      "Type": "625bc9643d44bee9f83f16fa",
-      "name": "Elisabeth Barrett",
-      "about": "Eve Wiggins",
-      "price": 1441,
-      "picture": "http://placehold.it/32x32"
+      "Type": "Batch - 30 Students 1hr",
+      "about": "I teach English And Math",
+      "price": 800,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     },
     {
       "id": "625bc964a081fa90000b83ee",
-      "Type": "625bc9645d8cc9b5f62a991e",
-      "name": "Connie Mullen",
-      "about": "Andrea Lawrence",
-      "price": 819,
-      "picture": "http://placehold.it/32x32"
+      "Type": "Batch - 50 Students 1hr ",
+      "about": "I teach English And Math",
+      "price": 600,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     },
     {
       "id": "625bc964cdc81e75b6207f4c",
-      "Type": "625bc96413a8a59a79bf4913",
-      "name": "Clarke Dickerson",
-      "about": "Avila Carr",
-      "price": 740,
-      "picture": "http://placehold.it/32x32"
+      "Type": "English per week 3days - 1hr",
+      "about": "You can talk in english fluently",
+      "price": 650,
+      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
     }
   ]

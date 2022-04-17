@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import banner from '../../images/home/homepage.svg'
 import Services from '../Services/Services';
+import Footer from '../Shared/Footer';
 
 const Home = () => {
     return (
         <>
 
-        <div className='grid grid-cols-2 px-24' >
+        <div className='grid grid-cols-2 px-24 shadow-md' >
 
             <div className=' text-left text-black flex flex-col justify-center '>
                 <p className='font-bold leading-[3rem] text-5xl text-left text-black' >
@@ -40,6 +41,8 @@ const Home = () => {
         </div>
 
         <Services/>
+
+        <Footer/>
 
         </>
     );
