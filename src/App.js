@@ -6,32 +6,38 @@ import Checkout from './Components/Checkout/Checkout';
 import Login from './Components/Authentication/Login';
 import SignUp from './Components/Authentication/SignUp';
 import RequireAuth from './Components/Authentication/RequireAuth';
-import  NotFound  from '../src/Components/NotFound/NotFound';
+import NotFound from '../src/Components/NotFound/NotFound';
+
+
 
 function App() {
+  // const X = useContext(ErrorPassContext);
+
+  // console.log(X);
+
   return (
-    <div className="">
-
-      <Header />
-
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/signin' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
+    <>
 
 
-        <Route path='/checkout' element={
-          <RequireAuth>
-            <Checkout />
-          </RequireAuth>
-        } />
+        <Header />
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/signin' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+
+
+          <Route path='/checkout' element={
+            <RequireAuth>
+              <Checkout />
+            </RequireAuth>
+          } />
 
 
 
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-
-    </div>
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+    </>
   );
 }
 

@@ -9,18 +9,14 @@ import Footer from '../Shared/Footer';
 const Home = () => {
 
     const [user] = useAuthState(auth);
-    
-    useEffect( ()=>{
-        console.log(user);
-    } ,[user])
 
     return (
         <>
 
-        <div className='grid grid-cols-2 px-24 shadow-md' >
+        <div className='grid lg:grid-cols-2 lg:px-24 px-5 shadow-md' >
 
-            <div className=' text-left text-black flex flex-col justify-center '>
-                <p className='font-bold leading-[3rem] text-5xl text-left text-black' >
+            <div className=' text-left text-black flex flex-col justify-center lg:order-1 order-2'>
+                <p className='font-bold leading-[3rem] text-5xl text-left text-blac  ' >
                     <span className='text-red-500' >Hi Im Sikshaa .</span> <br />
                     I am a private tutor
 
@@ -31,7 +27,7 @@ const Home = () => {
                 </p>
 
                 <div className='mt-7' >
-                    <Link to='about' className='bg-red-500 hover:bg-red-400 text-white px-3 py-2 rounded-md' >
+                    <Link to='about' className='bg-red-500 hover:bg-red-400 text-white px-3 py-2 rounded-md inline-block mb-4' >
                         know About me
                         
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 inline " viewBox="0 0 20 20" fill="currentColor">
@@ -43,7 +39,7 @@ const Home = () => {
             </div>
 
 
-            <div>
+            <div className='order-1' >
                 <img src={banner} alt="" />
             </div>
 
