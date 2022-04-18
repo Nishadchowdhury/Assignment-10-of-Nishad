@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 import SignInWithSocial from './SignInWithSocial';
+import { useNavigate } from 'react-router';
+import { ErrorPassContext } from '../../App';
 
 const SignUp = () => {
 
@@ -16,6 +18,7 @@ const SignUp = () => {
 
     const [updateProfile, updating, errorUpdate] = useUpdateProfile(auth);
     const [sendEmailVerification, sending, errorVerify] = useSendEmailVerification(auth);
+    const  [errorContext, setErrorContext] = useContext(ErrorPassContext);
 
     const [
         createUserWithEmailAndPassword,
@@ -23,7 +26,14 @@ const SignUp = () => {
         loading,
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth);
+  
+    
+    const navigate = useNavigate();
 
+    if (user) {
+        setError('')
+        navigate('/')
+    }
 
     //input handler
     const handleEmail = event => {
@@ -43,12 +53,12 @@ const SignUp = () => {
     }
 
     useEffect(() => {
-        if (hookError) {
-            setError(hookError.message);
-            return
+        if (hookError || errorContext) {
+            setError(hookError?.message || errorContext);
+            return;
         }
 
-    }, [hookError])
+    }, [hookError, errorContext])
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -121,7 +131,7 @@ const SignUp = () => {
                             <input onBlur={handleConfirmPassword} required type="password" name="password" placeholder="Re type password" className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
                         </div>
 
-                        {error && <p> {error} </p>}
+                        {error && <p className='text-red-500 mb-2' > {error} </p>}
 
                         <div className="mb-4">
                             <input type="submit" value="Create Profile" className="w-full px-3 py-4 text-white bg-red-500 rounded-md hover:bg-red-400  focus:outline-dotted outline-red-400 duration-100 ease-in-out" />

@@ -36,6 +36,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
+        setError('')
         navigate(from, { replace: true })
     }
 
