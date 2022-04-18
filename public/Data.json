@@ -4,41 +4,41 @@
       "Type": "Single Student",
       "about": "I teach English, Math & History",
       "price": 1000,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/YNRhVch/single-Student.png"
     },
     {
       "id": "625bc9647c7d5c149e01da97",
       "Type": "Single Student (Night)",
       "about": "I teach English, Math & History",
       "price": 1200,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/j81kzrf/student-night.png"
     },
     {
       "id": "625bc964d1d1abd64ac93528",
       "Type": "Tow Students (In One place)",
       "about": "I teach English, Math & History",
       "price": 1500,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/xz4hnB9/2-students.png"
     },
     {
       "id": "625bc96468190981583ba82e",
       "Type": "Batch - 30 Students 1hr",
       "about": "I teach English And Math",
       "price": 800,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/jDztHC5/30-students.png"
     },
     {
       "id": "625bc964a081fa90000b83ee",
       "Type": "Batch - 50 Students 1hr ",
       "about": "I teach English And Math",
       "price": 600,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/GCcnbZ1/50-students.png"
     },
     {
       "id": "625bc964cdc81e75b6207f4c",
       "Type": "English per week 3days - 1hr",
       "about": "You can talk in english fluently",
       "price": 650,
-      "picture": "https://flowbite.com/docs/images/blog/image-1.jpg"
+      "picture": "https://i.ibb.co/MDLTq4S/english-3-day.png"
     }
   ]
