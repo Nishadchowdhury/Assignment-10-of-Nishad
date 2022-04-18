@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router';
@@ -8,6 +8,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SignInWithSocial from './SignInWithSocial';
+import { ErrorPassContext } from '../../App';
 
 
 
@@ -17,6 +18,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    const  [errorContext, setErrorContext] = useContext(ErrorPassContext);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -49,12 +52,12 @@ const Login = () => {
 
 
     useEffect(() => {
-        if (hookError) {
-            setError(hookError.message);
-            return
+        if (hookError || errorContext) {
+            setError(hookError?.message || errorContext);
+            return;
         }
 
-    }, [hookError]);
+    }, [hookError , errorContext]);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -70,12 +73,8 @@ const Login = () => {
 
         const test = (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email);
 
-        if(!test){
+        if(!test || !email){
             toast('please write a valid email ')
-        }
-
-        if (!email) {
-            toast('Type your Email')
         }
 
         if (email && test) {

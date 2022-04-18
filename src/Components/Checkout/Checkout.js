@@ -5,8 +5,8 @@ const Checkout = () => {
 
     
     return (
-        <div>
-            <h1>This is checkOut</h1>
+        <div className='flex justify-center items-center h-[89vh] text-5xl ' >
+            <h1 >This is checkOut</h1>
         </div>
     );
 };

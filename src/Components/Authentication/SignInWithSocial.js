@@ -1,29 +1,39 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import auth from '../../firebase.init';
+import {ErrorPassContext} from '../../App'
 
 
-// //context api
+//context api
 // export const ErrorPassContext = createContext();
+
+
 
 const SignInWithSocial = () => {
     
+    const  [error, setError] = useContext(ErrorPassContext)
     
-    const [error, setError] = useState('');
+
+    
     
     const [signInWithGoogle, userGo, loadingGo, errorGo] = useSignInWithGoogle(auth);
     const [signInWithGithub, userGit, loadingGit, errorGit] = useSignInWithGithub(auth);
     
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
+
     
     if (userGo || userGit) {
-        navigate('/')
+        setError('')
+        navigate(from, { replace: true })
     }
     
     useEffect(() => {
         if (errorGo || errorGit) {
-            setError(errorGit.message || errorGit.message)
+            setError(errorGo?.message || errorGit?.message)
         }
     }, [errorGo, errorGit])
     
