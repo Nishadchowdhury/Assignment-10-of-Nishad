@@ -21,15 +21,15 @@ const Home = () => {
     return (
         <>
 
-            <div className='grid lg:grid-cols-2 lg:px-24 px-5 shadow-md' >
+            <div className='grid lg:grid-cols-2 lg:px-24 px-5 shadow-md ' >
 
-                <div className=' text-left text-black flex flex-col justify-center lg:order-1 order-2'>
+                <div className='text-left text-black flex flex-col justify-center lg:order-1 order-2'>
                     <p
 
                         data-aos="zoom-in-right"
                         // data-aos-delay="200"
 
-                        className='font-bold lg:leading-[3rem] lg:text-5xl text-3xl text-left text-blac  ' >
+                        className='font-bold lg:leading-[3rem] lg:text-5xl text-3xl text-left text-black' >
                         <span className='text-red-500  ' >Hi Im Sikshaa .</span> <br />
                         <span className='lg:text-5xl text-2xl ' > I am a private tutor </span>
 
@@ -59,7 +59,7 @@ const Home = () => {
                 </div>
 
 
-                <div className='order-1' >
+                <div className='order-1  lg:mt-0 mt-11' >
                     <img src={banner} alt="" />
                 </div>
 
