@@ -19,7 +19,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const  [errorContext, setErrorContext] = useContext(ErrorPassContext);
+    const [errorContext, setErrorContext] = useContext(ErrorPassContext);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Login = () => {
             return;
         }
 
-    }, [hookError , errorContext]);
+    }, [hookError, errorContext]);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -74,7 +74,7 @@ const Login = () => {
 
         const test = (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email);
 
-        if(!test || !email){
+        if (!test || !email) {
             toast('please write a valid email ')
         }
 
@@ -94,8 +94,8 @@ const Login = () => {
         <div>
 
 
-            <div className="flex justify-center  bg-gray-100">
-                <div className="container sm:mt-4 mt-4 my-2 max-w-md border-2 border-gray-200 p-3 bg-white">
+            <div className="flex justify-center   ">
+                <div className="container mt-20 my-2 shadow-xl max-w-md border-2 border-gray-200 p-3 bg-white">
 
                     <div className="text-center my-6">
                         <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
