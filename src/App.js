@@ -10,18 +10,16 @@ import NotFound from '../src/Components/NotFound/NotFound';
 import Blogs from './Components/Blogs/Blogs';
 import { createContext, useState } from 'react';
 import About from './Components/About/About';
+import 'aos/dist/aos.css';
 
 export const ErrorPassContext = createContext();
 
 function App() {
-  // const X = useContext(ErrorPassContext);
-
-  // console.log(X);
 
   const [error, setError] = useState('');
 
   return (
-    <>
+    <div className='max-w-[100rem] m-auto'>
 
       <ErrorPassContext.Provider value={[error, setError]} >
 
@@ -46,7 +44,7 @@ function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
       </ErrorPassContext.Provider>
-    </>
+    </div>
   );
 }
 

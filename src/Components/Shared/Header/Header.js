@@ -1,19 +1,25 @@
 import { signOut } from '@firebase/auth';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import logo from '../../../images/home/logo.png';
-
+import AOS from 'aos';
 
 const Header = () => {
+
+
+  useEffect(() => {
+    AOS.init({ duration: 750 });
+  }, []);
+
 
   const [user] = useAuthState(auth);
 
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-  const active = 'p-2  border-y-2 border-red-500 m-4 text-red-500 rounded-lg bg-red-50 ';
-  const notActive = 'p-2 border-b-2 m-4 ';
+  const active = 'p-2 lg:m-4 m-2 border-y-2 border-[#FF0000] text-[#FF0000] rounded-lg bg-red-50 btn';
+  const notActive = 'p-2 border-b-2 lg:m-4 m-2 btn';
 
   return (
     <div>
@@ -24,10 +30,13 @@ const Header = () => {
               className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
               href="#pablo"
             >
-              <img className='h-9' src={logo} alt="" />
+              <img
+                data-aos="zoom-in"
+                className='h-9' src={logo} alt="" />
 
             </Link>
             <button
+              data-aos="zoom-in"
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
@@ -41,23 +50,41 @@ const Header = () => {
             </button>
           </div>
           <div
+
             className={
-              "lg:flex flex-grow items-center" +
-              (navbarOpen ? " flex" : " hidden")
+              "lg:flex flex-grow items-center h-14" +
+              (navbarOpen ? " flex justify-center" : " hidden")
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto gap-7 ">
-              <NavLink to='/' className={({ isActive }) => isActive ? active : notActive} > Home </NavLink>
-              <NavLink to='/about' className={({ isActive }) => isActive ? active : notActive} > About </NavLink>
-              <NavLink to='/blogs' className={({ isActive }) => isActive ? active : notActive} > Blogs </NavLink>
+            <ul
+
+              className="flex  list-none lg:ml-auto gap-0  lg:gap-7 ">
+              <button
+                data-aos="zoom-in"
+                data-aos-delay="0"
+                className='btn'> <NavLink to='/' className={({ isActive }) => isActive ? active : notActive} > Home </NavLink></button>
+              <button
+                data-aos="zoom-in"
+                data-aos-delay="10"
+                className='btn'> <NavLink to='/about' className={({ isActive }) => isActive ? active : notActive} > About </NavLink></button>
+              <button
+                data-aos="zoom-in"
+                data-aos-delay="200"
+                className='btn'> <NavLink to='/blogs' className={({ isActive }) => isActive ? active : notActive} > Blogs </NavLink></button>
 
               {/* {user ? <button className={notActive} onClick={()=> signOut(auth)} > Sing Out </button> : */}
-              {user ? <NavLink to='/signin' onClick={() => signOut(auth)} className={({ isActive }) => isActive ? active : notActive} > Sing Out </NavLink> :
+
+              <li
+
+                data-aos="zoom-in"
+                data-aos-delay="300"
+              >  {user ? <NavLink
+                to='/signin' onClick={() => signOut(auth)} className={({ isActive }) => isActive ? active : notActive} > Sing Out </NavLink> :
 
                 <NavLink to='/signin' className={({ isActive }) => isActive ? active : notActive} > Sign in </NavLink>
 
-              }
+                }</li>
 
             </ul>
           </div>
