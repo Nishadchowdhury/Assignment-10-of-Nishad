@@ -21,7 +21,7 @@ const Home = () => {
     return (
         <>
 
-            <div className='grid lg:grid-cols-2 lg:px-24 px-5 shadow-md ' >
+            <div className='grid lg:grid-cols-2 lg:px-24 px-5 shadow-md  ' >
 
                 <div className='text-left text-black flex flex-col justify-center lg:order-1 order-2'>
                     <p
@@ -45,6 +45,7 @@ const Home = () => {
 
                     <div className='mt-7'
                         data-aos="zoom-in-right"
+                        data-aos-offset="20"
                         data-aos-delay="400"
                     >
                         <Link to='about' className='bg-red-500 hover:bg-red-400 text-white px-3 py-2 rounded-md inline-block mb-4' >
